@@ -13,6 +13,7 @@
     <script>
         function sendBarcode() {
             const barcode = document.getElementById('barcodeInput').value;
+            alert('Goooooo');
             google.script.run.withSuccessHandler(updateResponse).findAndUpdateBarcode(barcode);
         }
 
