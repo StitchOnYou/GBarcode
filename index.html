@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barcode Update</title>
+</head>
+<body>
+    <h1>Barcode Update</h1>
+    <label for="barcodeInput">Barcode:</label>
+    <input type="text" id="barcodeInput" placeholder="Enter barcode">
+    <button onclick="sendBarcode()">Update Barcode</button>
+    <p id="response"></p>
+
+    <script>
+        function sendBarcode() {
+            const barcode = document.getElementById('barcodeInput').value;
+            google.script.run.withSuccessHandler(updateResponse).findAndUpdateBarcode(barcode);
+        }
+
+        function updateResponse(response) {
+            document.getElementById('response').textContent = response;
+            document.getElementById('barcodeInput').value = ''; // Clear input field
+        }
+    </script>
+</body>
+</html>
